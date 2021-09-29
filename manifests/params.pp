@@ -77,4 +77,6 @@ class etcd::params {
   $log_package_levels = undef
 
   $journald_forward_enable = false
+  #metrics
+  $metrics = 'basic'
 }
