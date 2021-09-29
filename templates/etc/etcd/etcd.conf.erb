@@ -88,5 +88,3 @@ ETCD_DEBUG=<%= scope['etcd::debug'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::log_package_levels']) -%>
 ETCD_LOG_PACKAGE_LEVELS="<%= scope['etcd::log_package_levels'] %>"
 <% end -%>
-#[metrics]
-ETCD_METRICS="<%= scope['etcd::metrics'] %>"

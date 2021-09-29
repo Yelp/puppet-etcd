@@ -78,5 +78,5 @@ class etcd::params {
 
   $journald_forward_enable = false
   #metrics
-  $metrics = 'extensive'
+  $metrics = 'basic'
 }
