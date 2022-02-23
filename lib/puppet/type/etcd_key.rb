@@ -49,6 +49,16 @@ Puppet::Type.newtype(:etcd_key) do
     defaultto false
   end
 
+  newparam(:client_cert_file) do
+    desc "identify HTTPS client using this SSL certificate file"
+    defaultto false
+  end
+
+  newparam(:client_key_file) do
+    desc "identify HTTPS client using this SSL key file"
+    defaultto false
+  end
+
   newparam(:ca_file) do
     desc "verify certificates of HTTPS-enabled servers using this CA bundle"
     defaultto false

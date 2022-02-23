@@ -63,6 +63,8 @@ class etcd::params {
   # security
   $cert_file = undef
   $key_file = undef
+  $client_cert_file = undef
+  $client_key_file = undef
   $client_cert_auth = false
   $trusted_ca_file = undef
   $auto_tls = undef
