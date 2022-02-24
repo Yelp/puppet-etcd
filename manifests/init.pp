@@ -180,11 +180,19 @@
 #
 # security
 # [*cert_file*]
-#   Path to the client server TLS cert file.
+#   Path to the server TLS cert file.  It will also be used as a client certificate if client_cert_file is empty.
 #   default: none
 #
 # [*key_file*]
-#   Path to the client server TLS key file.
+#   Path to the server TLS key file.  It will also be used as a client certificate if client_key_file is empty.
+#   default: none
+#
+# [*client_cert_file*]
+#   Path to the client TLS cert file.
+#   default: none
+#
+# [*client_key_file*]
+#   Path to the client TLS key file.
 #   default: none
 #
 # [*client_cert_auth*]
@@ -276,6 +284,8 @@ class etcd (
   # security
   $cert_file                   = $etcd::params::cert_file,
   $key_file                    = $etcd::params::key_file,
+  $client_cert_file            = $etcd::params::client_cert_file,
+  $client_key_file             = $etcd::params::client_key_file,
   $client_cert_auth            = $etcd::params::client_cert_auth,
   $trusted_ca_file             = $etcd::params::trusted_ca_file,
   $auto_tls                    = $etcd::params::auto_tls,
@@ -308,6 +318,8 @@ class etcd (
   validate_absolute_path($data_dir)
   if $cert_file { validate_absolute_path($cert_file) }
   if $key_file { validate_absolute_path($key_file) }
+  if $client_cert_file { validate_absolute_path($client_cert_file) }
+  if $client_key_file { validate_absolute_path($client_key_file) }
   if $trusted_ca_file { validate_absolute_path($trusted_ca_file) }
   if $peer_cert_file { validate_absolute_path($peer_cert_file) }
   if $peer_key_file { validate_absolute_path($peer_key_file) }

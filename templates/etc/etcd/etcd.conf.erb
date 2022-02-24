@@ -62,6 +62,12 @@ ETCD_CERT_FILE="<%= scope['etcd::cert_file'] %>"
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::key_file']) -%>
 ETCD_KEY_FILE="<%= scope['etcd::key_file'] %>"
 <% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::client_cert_file']) -%>
+ETCD_CLIENT_CERT_FILE="<%= scope['etcd::client_cert_file'] %>"
+<% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::client_key_file']) -%>
+ETCD_CLIENT_KEY_FILE="<%= scope['etcd::client_key_file'] %>"
+<% end -%>
 ETCD_CLIENT_CERT_AUTH=<%= scope['etcd::client_cert_auth'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::trusted_ca_file']) -%>
 ETCD_TRUSTED_CA_FILE="<%= scope['etcd::trusted_ca_file'] %>"

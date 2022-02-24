@@ -128,6 +128,16 @@ client-transport-security:
   key-file: "<%= scope['etcd::key_file'] %>"
 <% end -%>
 
+<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::client_cert_file']) -%>
+  # Path to the client TLS cert file.
+  client-cert-file: "<%= scope['etcd::client_cert_file'] %>"
+<% end -%>
+
+<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::client_key_file']) -%>
+  # Path to the client TLS key file.
+  client-key-file: "<%= scope['etcd::client_key_file'] %>"
+<% end -%>
+
   # Enable client cert authentication.
   client-cert-auth: <%= scope['etcd::client_cert_auth'] %>
 
